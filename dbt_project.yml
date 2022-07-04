@@ -43,28 +43,44 @@ vars:
 
 models:
   dbtvault_sf:
-    raw_stage:
+    sample_project:
       tags:
-        - 'raw'
-      materialized: view
-    stage:
-      tags:
-        - 'stage'
-      enabled: true
-      materialized: view
-    raw_vault:
-      tags:
-        - 'raw_vault'
-      materialized: incremental
-      hubs:
+        - 'sample_project'
+      raw_stage:
         tags:
-          - 'hub'
-      links:
+          - 'raw'
+        materialized: view
+      stage:
         tags:
-          - 'link'
-      sats:
+          - 'stage'
+        enabled: true
+        materialized: view
+      raw_vault:
         tags:
-          - 'satellite'
-      t_links:
-        tags:
-          - 't_link'
+          - 'raw_vault'
+        materialized: incremental
+        hubs:
+          tags:
+            - 'hub'
+        links:
+          tags:
+            - 'link'
+        sats:
+          tags:
+            - 'satellite'
+        t_links:
+          tags:
+            - 't_link'
+        eff_sats:
+          tags:
+            - 'eff_satellite'
+        ma_sats:
+          tags:
+            - 'multi_satellite'
+        as_of_date:
+          tags:
+            - 'as_of_date'
+        pit:
+          tags:
+            - 'pit'
+   
